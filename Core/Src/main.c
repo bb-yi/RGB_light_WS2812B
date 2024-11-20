@@ -113,14 +113,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_UARTEx_ReceiveToIdle_DMA(&huart1, Rx_data, 200 - 1); // 启用空闲中断接收
   __HAL_DMA_DISABLE_IT(&hdma_usart1_rx, DMA_IT_HT);        // 关闭DMA传输过半中断
-  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
-  HAL_Delay(50);
-  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
-  HAL_Delay(50);
-  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
-  HAL_Delay(50);
-  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
-  HAL_Delay(50);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -141,15 +134,21 @@ int main(void)
     //   set_all_led_color(led_color);
     //   HAL_Delay(100);
     // }
-    for (uint8_t i = 0; i < 100; i++)
-    {
-      write_all_led_color(255);
-      HSVtoRGB(i, 100, 100, &temp[0], &temp[1], &temp[2]);
-      set_all_led_one_color(temp[0], temp[1], temp[2]);
-      set_all_led_color(led_color);
-      HAL_Delay(10);
-    }
+    // for (uint8_t i = 0; i < 100; i++)
+    // {
+    //   write_all_led_color(255);
+    //   HSVtoRGB(i, 100, 100, &temp[0], &temp[1], &temp[2]);
+    //   set_all_led_one_color(temp[0], temp[1], temp[2]);
+    //   set_all_led_color(led_color);
+    //   HAL_Delay(10);
+    // }
+    HSVtoRGB(3, 50, 100, &temp[0], &temp[1], &temp[2]);
+    set_all_led_one_color(temp[0], temp[1], temp[2]);
+    set_all_led_color(led_color);
+    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+    HAL_Delay(30);
   }
+
   /* USER CODE END 3 */
 }
 

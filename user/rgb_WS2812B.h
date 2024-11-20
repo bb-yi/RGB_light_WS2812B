@@ -1,7 +1,7 @@
 #ifndef _RGB_WS2812B_H_
 #define _RGB_WS2812B_H_
 #include "main.h"
-#define MAX_LED_NUM 19
+#define MAX_LED_NUM 60
 
 struct rgb_WS2812B
 {
